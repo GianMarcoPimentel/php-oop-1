@@ -84,7 +84,7 @@ $movie1 = new Movie(
 /* var_dump($movie1); */
 $movie2Director = new Director("Manoj Nelliyattu","Shyamalan","Indiana");
 $movie2 = new Movie(
-    "https://i.ytimg.com/vi/dD8ru7mFXuo/sddefault.jpg",
+    "http://www.filmscoop.it/locandine/split.jpg",
     "Split", 
     "Il film segue un uomo affetto da disturbo dissociativo dell'identità che rapisce e imprigiona tre ragazze adolescenti in una struttura sotterranea isolata.",
     "Mistery",
