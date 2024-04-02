@@ -22,6 +22,15 @@ class Director {
         $this->cognome = $_cognome;
         $this->nazionalita = $_nazionalita;
     }
+    
+    /**
+     * getDirector
+     *
+     * @return string
+     */
+    public function getDirector() {
+        return $this->nome . ' ' . $this->cognome . ' Nazionalità - ' . $this->nazionalita;
+    }
 };
 
 /* $director = new Director("Paola","Cortellesi","Italiana");
@@ -115,7 +124,7 @@ var_dump($movies);
                 echo "
                 <li>
                 TITOLO : " . $movie->title ." <br> DESCRIZIONE: " . $movie->description . " <br> GENERE: " . $movie->gender . " <br> ANNO: " . $movie->year . " <br>
-                REGISTA : " . $movie->director->nome . " " . $movie->director->cognome . " " . $movie->director->nazionalita ."
+                REGISTA : " . $movie->director->getDirector() .  "
                 </li>
                 ";
                 
