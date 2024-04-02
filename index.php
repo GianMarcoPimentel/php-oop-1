@@ -1,10 +1,32 @@
+
 <?php
+/*
+ * Director
+ * Dati del regista
+ */
 class Director {
     public $nome;
     public $cognome;
-    public $DataDiNascita;
+    public $nazionalita;
     
+    
+    /**
+     * __construct
+     *
+     * @param  string $_nome
+     * @param  string $_cognome
+     * @param  string $_nazionalita
+     */
+    public function __construct($_nome, $_cognome, $_nazionalita) {
+        $this->nome = $_nome;
+        $this->cognome = $_cognome;
+        $this->nazionalita = $_nazionalita;
+    }
 };
+
+/* $director = new Director("Paola","Cortellesi","Italiana");
+var_dump($director); */
+
 /**
  * Movie
  * caratteristiche di un singolo movie
@@ -28,7 +50,7 @@ class Movie {
      * @param  int $year
 
      */
-    public function __construct($title, $description, $gender, $director, $year) { 
+    public function __construct($title, $description, $gender, Director $director, $year) { 
         $this->title = $title;
         $this->description = $description;
         $this->gender = $gender;
@@ -38,22 +60,22 @@ class Movie {
 
 };
 
-
+$movie1Director = new Director("Paola","Cortellesi","Italiana");
 $movie1 = new Movie(
     "C'è ancora domani",
     "Un viaggio nel passato neorealista tra povertà, maschi tossici e speranze per la figura femminile",
     "Drama",
-    "Paola Cortellesi",
+    $movie1Director,
     "2023",
 );
 
 /* var_dump($movie1); */
-
+$movie2Director = new Director("Manoj Nelliyattu","Shyamalan","Indiana");
 $movie2 = new Movie(
     "Split", 
     "Il film segue un uomo affetto da disturbo dissociativo dell'identità che rapisce e imprigiona tre ragazze adolescenti in una struttura sotterranea isolata.",
     "Mistery",
-    "M. Night Shyamalan",
+    $movie2Director,
     "2016",
 
 );
@@ -64,7 +86,7 @@ $movies = [
     $movie1,
     $movie2
 ];
-/* var_dump($movies); */
+var_dump($movies);
 
 ?>
 
@@ -92,7 +114,8 @@ $movies = [
             foreach($movies as $movie) {
                 echo "
                 <li>
-                TITOLO : " . $movie->title ." <br> DESCRIZIONE: " . $movie->description . " <br> GENERE: " . $movie->gender . " <br> DIRETTORE: " . $movie->director . " <br> ANNO: " . $movie->year . ";
+                TITOLO : " . $movie->title ." <br> DESCRIZIONE: " . $movie->description . " <br> GENERE: " . $movie->gender . " <br> ANNO: " . $movie->year . " <br>
+                REGISTA : " . $movie->director->nome . " " . $movie->director->cognome . " " . $movie->director->nazionalita ."
                 </li>
                 ";
                 
