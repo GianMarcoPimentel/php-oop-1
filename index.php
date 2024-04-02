@@ -42,19 +42,24 @@ $movie1 = new Movie(
     "2023",
 );
 
-var_dump($movie1);
+/* var_dump($movie1); */
 
 $movie2 = new Movie(
     "Split", 
     "Il film segue un uomo affetto da disturbo dissociativo dell'identità che rapisce e imprigiona tre ragazze adolescenti in una struttura sotterranea isolata.",
-    "mistery/horror",
+    "Mistery/Horror",
     "M. Night Shyamalan",
     "2016",
 
 );
-var_dump($movie2);
+/* var_dump($movie2); */
 
 
+$movies = [
+    $movie1,
+    $movie2
+];
+/* var_dump($movies); */
 
 ?>
 
@@ -72,9 +77,18 @@ var_dump($movie2);
 <body>
     <h1>Movies</h1>
     <ul>
-        <li>
-        </li>
+        <?php
+        foreach($movies as $movie) {
+            echo "
+            <li>
+            TITOLO : " . $movie->title ." <br> DESCRIZIONE:" . $movie->description . " <br> GENERE: " . $movie->gender . " <br> DIRETTORE:" . $movie->director . " <br> ANNO:" . $movie->year . ";
+            </li>
+            ";
+            
+        }
+        ?>
+        </ul>
         
-    </ul>
+        
 </body>
 </html>
