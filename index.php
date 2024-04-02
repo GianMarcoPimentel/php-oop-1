@@ -95,7 +95,7 @@ $movies = [
     $movie1,
     $movie2
 ];
-var_dump($movies);
+/* var_dump($movies); */
 
 ?>
 
