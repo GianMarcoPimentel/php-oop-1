@@ -41,6 +41,7 @@ var_dump($director); */
  * caratteristiche di un singolo movie
  */
 class Movie {
+    public $image;
     public $title;
     public $description;
     public $gender;
@@ -59,7 +60,8 @@ class Movie {
      * @param  int $year
 
      */
-    public function __construct($title, $description, $gender, Director $director, $year) { 
+    public function __construct($image, $title, $description, $gender, Director $director, $year) { 
+        $this->image = $image;
         $this->title = $title;
         $this->description = $description;
         $this->gender = $gender;
@@ -71,6 +73,7 @@ class Movie {
 
 $movie1Director = new Director("Paola","Cortellesi","Italiana");
 $movie1 = new Movie(
+    "https://i.ytimg.com/vi/dD8ru7mFXuo/sddefault.jpg",
     "C'è ancora domani",
     "Un viaggio nel passato neorealista tra povertà, maschi tossici e speranze per la figura femminile",
     "Drama",
@@ -81,6 +84,7 @@ $movie1 = new Movie(
 /* var_dump($movie1); */
 $movie2Director = new Director("Manoj Nelliyattu","Shyamalan","Indiana");
 $movie2 = new Movie(
+    "https://i.ytimg.com/vi/dD8ru7mFXuo/sddefault.jpg",
     "Split", 
     "Il film segue un uomo affetto da disturbo dissociativo dell'identità che rapisce e imprigiona tre ragazze adolescenti in una struttura sotterranea isolata.",
     "Mistery",
@@ -121,7 +125,11 @@ $movies = [
         <ul>
             <?php
             foreach($movies as $movie) {
+                ?>
+                <img :src="<?php ?>" alt="">
+            <?php 
                 echo "
+                <img src='$movie->image' alt='' >;
                 <li>
                 TITOLO : " . $movie->title ." <br> DESCRIZIONE: " . $movie->description . " <br> GENERE: " . $movie->gender . " <br> ANNO: " . $movie->year . " <br>
                 REGISTA : " . $movie->director->getDirector() .  "
