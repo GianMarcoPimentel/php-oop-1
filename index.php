@@ -1,5 +1,10 @@
 <?php
-
+class Director {
+    public $nome;
+    public $cognome;
+    public $DataDiNascita;
+    
+};
 /**
  * Movie
  * caratteristiche di un singolo movie
